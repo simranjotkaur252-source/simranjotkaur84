@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive Computer Science Assessment</title>
+    <style>
+        :root {
+            --primary: #1e293b;
+            --secondary: #475569;
+            --accent-blue: #2563eb;
+            --accent-red: #dc2626;
+            --accent-green: #059669;
+            --accent-purple: #7c3aed;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --border: #e2e8f0;
+        }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #e2e8f0;
+            color: var(--primary);
+        }
+        .master-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .section-container {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 40px;
+        }
+        h1 {
+            color: var(--primary);
+            border-bottom: 3px solid var(--accent-blue);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        h2 {
+            color: var(--accent-blue);
+            margin-top: 35px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: var(--primary);
+            margin-top: 25px;
+        }
+        .subtitle {
+            text-align: center;
+            font-style: italic;
+            color: var(--secondary);
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        
+        /* Elements from various files */
+        ul { padding-left: 20px; margin-bottom: 20px; }
+        li { margin-bottom: 10px; }
+        p { margin-bottom: 15px; }
+        
+        /* Tables */
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { padding: 15px; border: 1px solid #cbd5e1; text-align: left; vertical-align: top; }
+        th { background-color: #f1f5f9; color: var(--primary); width: 33%; }
+        tr:nth-child(even) { background-color: #f8fafc; }
+        
+        /* Grids and Cards */
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 25px; }
+        .card { background-color: #f1f5f9; padding: 25px; border-radius: 8px; border-top: 4px solid var(--secondary); }
+        .card-title { font-weight: bold; font-size: 1.2em; margin-bottom: 15px; color: var(--primary); }
+        
+        /* Special Highlights & Boxes */
+        .characteristic-title { font-weight: bold; color: var(--accent-red); }
+        .generation-box { background-color: #ecf0f1; border-left: 5px solid #3498db; padding: 15px 20px; margin-bottom: 15px; border-radius: 4px; }
+        .generation-title { font-weight: bold; font-size: 1.1em; display: block; margin-bottom: 5px; }
+        .tech-highlight { font-weight: bold; color: var(--accent-green); }
+        
+        .highlight { background-color: #e8f4f8; padding: 15px; border-left: 5px solid #2980b9; border-radius: 4px; margin: 20px 0; }
+        .term { font-weight: bold; color: var(--accent-red); }
+        
+        .scenario-box { background-color: #ebf8ff; border-left: 5px solid #3182ce; padding: 20px; margin: 20px 0; border-radius: 4px; }
+        .scenario-title { font-weight: bold; font-size: 1.2em; color: #2c5282; margin-bottom: 10px; display: block; }
+        .tech-badge { display: inline-block; background-color: #2b6cb0; color: white; padding: 3px 8px; border-radius: 12px; font-size: 0.85em; font-weight: bold; margin-right: 5px; }
+        
+        .metric { font-weight: bold; color: #c0392b; width: 20%; background-color: white !important;}
+        .low-level { background-color: #e8f4f8; }
+        .high-level { background-color: #eafaf1; }
+        
+        .intro-box { background-color: #f0f9ff; padding: 20px; border-radius: 8px; border-left: 4px solid #0284c7; margin-bottom: 30px; }
+        .verdict-box { background-color: #ecfdf5; padding: 25px; border-radius: 8px; border: 2px solid #10b981; margin-top: 40px; }
+        .verdict-title { font-weight: bold; font-size: 1.3em; color: #047857; margin-bottom: 10px; }
+        
+        .vuln-badge { display: inline-block; background-color: #fee2e2; color: var(--accent-red); padding: 2px 8px; border-radius: 4px; font-size: 0.85em; font-weight: bold; margin-bottom: 5px; }
+        .conclusion { margin-top: 40px; background-color: #eff6ff; padding: 25px; border-left: 5px solid var(--accent-blue); border-radius: 4px; }
+        
+        .highlight-box { background-color: #f5f3ff; border: 2px dashed var(--accent-purple); padding: 25px; border-radius: 8px; margin-top: 40px; }
+        .highlight-title { color: var(--accent-purple); font-size: 1.4em; font-weight: bold; margin-bottom: 15px; }
+        .tech-tag { display: inline-block; background: var(--primary); color: white; padding: 3px 10px; border-radius: 15px; font-size: 0.85em; margin-right: 5px; }
+        
+        .master-header {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .master-header h1 { border: none; color: white; margin-bottom: 10px;}
+    </style>
+</head>
+<body>
+    <div class="master-container">
+        
+        <div class="master-header">
+            <h1>Comprehensive Computer Science Assessment</h1>
+            <p>An integrated compilation of all 8 core competencies and evaluations.</p>
+        </div>
+
+        <!-- QUESTION 1 -->
+        <div class="section-container">
+            <h1>1. Modern Computer Fundamentals</h1>
+            <p class="subtitle">Remembering Computer characteristics & hardware across generations of computers. (Knowledge)</p>
+            <h2>Four Primary Characteristics of a Modern Digital Computer</h2>
+            <ul>
+                <li><span class="characteristic-title">Speed:</span> Modern computers operate at incredibly high speeds, processing millions or billions of instructions per second (MIPS/BIPS).</li>
+                <li><span class="characteristic-title">Accuracy:</span> Computers perform complex calculations and data processing with a near-perfect degree of accuracy, provided the input data and instructions are correct (GIGO principle).</li>
+                <li><span class="characteristic-title">Diligence:</span> Unlike humans, computers do not suffer from fatigue, lack of concentration, or boredom. They can perform repetitive tasks continuously for hours or days without making errors.</li>
+                <li><span class="characteristic-title">Versatility:</span> Computers are highly flexible machines that can be used for a wide variety of tasks—from solving complex scientific equations to word processing, graphic design, and running business applications.</li>
+            </ul>
+            <h2>Key Hardware Technology Across Five Generations</h2>
+            <div class="generation-box">
+                <span class="generation-title">First Generation (1940s - 1956)</span>
+                Primary Hardware: <span class="tech-highlight">Vacuum Tubes</span>
+                <p style="margin: 5px 0 0 0;">Used for circuitry and magnetic drums for memory. These computers were massive (taking up entire rooms), generated enormous heat, and consumed a lot of electricity.</p>
+            </div>
+            <div class="generation-box">
+                <span class="generation-title">Second Generation (1956 - 1963)</span>
+                Primary Hardware: <span class="tech-highlight">Transistors</span>
+                <p style="margin: 5px 0 0 0;">Replaced vacuum tubes, making computers vastly smaller, faster, cheaper, and more energy-efficient while relying on magnetic core memory.</p>
+            </div>
+            <div class="generation-box">
+                <span class="generation-title">Third Generation (1964 - 1971)</span>
+                Primary Hardware: <span class="tech-highlight">Integrated Circuits (ICs)</span>
+                <p style="margin: 5px 0 0 0;">Transistors were miniaturized and placed on silicon chips (semiconductors), which drastically increased the speed and efficiency of computers.</p>
+            </div>
+            <div class="generation-box">
+                <span class="generation-title">Fourth Generation (1971 - Present)</span>
+                Primary Hardware: <span class="tech-highlight">Microprocessors (VLSI)</span>
+                <p style="margin: 5px 0 0 0;">Very Large Scale Integration (VLSI) allowed thousands of integrated circuits to be built onto a single silicon chip, bringing computing to the desktop level and creating Personal Computers (PCs).</p>
+            </div>
+            <div class="generation-box">
+                <span class="generation-title">Fifth Generation (Present and Beyond)</span>
+                Primary Hardware: <span class="tech-highlight">Ultra Large Scale Integration (ULSI) & AI Hardware</span>
+                <p style="margin: 5px 0 0 0;">Based on artificial intelligence, utilizing ULSI technology, parallel processing, quantum computing, and nanotechnology to mimic human reasoning and learning.</p>
+            </div>
+        </div>
+
+        <!-- QUESTION 2 -->
+        <div class="section-container">
+            <h1>2. Computer System Architecture: Flow of Information</h1>
+            <p class="subtitle">Understanding the functional block diagram of a computer, detailing the interaction between the CPU, memory unit, and I/O interface.</p>
+            <h2>1. Core Functional Units</h2>
+            <ul>
+                <li><span class="term">Central Processing Unit (CPU):</span> The brain of the computer, consisting of the Control Unit (CU), Arithmetic Logic Unit (ALU), and Registers. It processes instructions and data.</li>
+                <li><span class="term">Memory Unit:</span> Stores instructions, data, and intermediate results. It includes Primary Memory (RAM/ROM) for active tasks and Secondary Memory for long-term storage.</li>
+                <li><span class="term">Input/Output (I/O) Interface:</span> Bridges external devices (keyboard, mouse, monitor, printer) with the internal system, converting data formats back and forth.</li>
+            </ul>
+            <h2>2. Flow of Data</h2>
+            <p>Data travels through the system via the <strong>Data Bus</strong>, a bidirectional pathway. The flow typically follows this sequence:</p>
+            <ul>
+                <li><strong>Input to Memory:</strong> Raw data enters through an input device via the I/O interface and is temporarily stored in the Primary Memory.</li>
+                <li><strong>Memory to CPU:</strong> When processing is required, data is fetched from Memory into the CPU's internal registers.</li>
+                <li><strong>Within the CPU:</strong> The ALU performs mathematical or logical operations on the data based on given instructions.</li>
+                <li><strong>CPU to Memory/Output:</strong> The processed data (information) is sent back to Memory for storage, or directed to the I/O interface to be displayed or printed by an output device.</li>
+            </ul>
+            <h2>3. Flow of Instructions</h2>
+            <p>Instructions are the commands that tell the hardware what to do. They flow primarily between the Memory and the CPU:</p>
+            <div class="highlight">
+                <strong>The Fetch-Execute Cycle:</strong>
+                <ol>
+                    <li>The CPU's Control Unit (CU) fetches the next instruction from Primary Memory.</li>
+                    <li>The instruction is loaded into the CPU's Instruction Register.</li>
+                    <li>The CU decodes the instruction to determine what operation needs to be performed.</li>
+                    <li>The CU then dictates the execution of the instruction (e.g., triggering the ALU to add two numbers).</li>
+                </ol>
+            </div>
+            <h2>4. Flow of Control Signals</h2>
+            <p>Control signals are generated by the <strong>Control Unit (CU)</strong> within the CPU and travel via the <strong>Control Bus</strong>. These signals manage and coordinate the entire system:</p>
+            <ul>
+                <li><span class="term">Read/Write Signals:</span> The CU sends a "Read" signal to Memory to fetch data or instructions, and a "Write" signal to store processed results back into Memory.</li>
+                <li><span class="term">I/O Control:</span> The CU sends control signals to the I/O interface to initiate the acceptance of input data or the transmission of output data.</li>
+                <li><span class="term">Timing Signals:</span> These synchronize the operations of the CPU, Memory, and I/O devices so that data isn't lost or overwritten during transfers.</li>
+            </ul>
+        </div>
+
+        <!-- QUESTION 3 -->
+        <div class="section-container">
+            <h1>3. Campus Automation: Real-World Hardware Implementation</h1>
+            <p class="subtitle">Applying Optical Data Scanning and Electronic Card Readers to Automate Attendance and Library Operations</p>
+            <h2>1. Automating Student Attendance</h2>
+            <p>Traditional roll-calls are time-consuming and prone to errors. Deploying hardware-based automation significantly streamlines this process across classrooms and lecture halls.</p>
+            <div class="scenario-box">
+                <span class="scenario-title">Implementation A: Electronic Card Readers (RFID/Smart Cards)</span>
+                <p><strong>Hardware Setup:</strong> Proximity RFID card readers are installed at the entrance of every classroom. Each student is issued a unique, programmable Smart ID Card containing an embedded microchip and antenna.</p>
+                <ul>
+                    <li><span class="tech-badge">RFID</span><strong>The Process:</strong> As students walk into the classroom, they tap or wave their ID card near the reader.</li>
+                    <li><span class="tech-badge">Network</span><strong>Data Flow:</strong> The reader captures the unique student ID number via radio waves and transmits it over the campus Wi-Fi/LAN to the central attendance database.</li>
+                    <li><span class="tech-badge">Software</span><strong>Result:</strong> The system automatically logs the student as 'Present' along with the exact timestamp, linking it to the specific class schedule.</li>
+                </ul>
+            </div>
+            <div class="scenario-box">
+                <span class="scenario-title">Implementation B: Optical Data Scanners (Barcode/QR)</span>
+                <p><strong>Hardware Setup:</strong> 2D Barcode/QR scanners or mounted camera modules are placed on the lecturer's desk. Student ID cards feature a high-contrast barcode or QR code.</p>
+                <ul>
+                    <li><span class="tech-badge">Barcode</span><strong>The Process:</strong> Students present their ID cards to the optical scanner. The scanner uses a light source to illuminate the barcode, measuring the reflected light to decode the patterns into digital data.</li>
+                    <li><span class="tech-badge">OMR</span><strong>Alternative (Exams):</strong> For large examinations, Optical Mark Recognition (OMR) sheets are used for attendance. Students bubble in their roll numbers, and high-speed OMR scanners process hundreds of sheets per minute in the admin office.</li>
+                </ul>
+            </div>
+            <h2>2. Automating Library Checkouts</h2>
+            <p>The campus library requires high-speed, secure, and accurate tracking of inventory. Hardware deployment here prevents theft and allows for self-service checkouts.</p>
+            <div class="scenario-box">
+                <span class="scenario-title">Implementation A: Self-Service Kiosks via RFID</span>
+                <p><strong>Hardware Setup:</strong> Library books are equipped with passive RFID tags hidden inside the covers. Self-service checkout kiosks with integrated Smart Card readers and RFID pad scanners are installed.</p>
+                <ul>
+                    <li><span class="tech-badge">Smart Card</span><strong>Authentication:</strong> The student taps their Smart ID Card on the kiosk reader to log into their library account.</li>
+                    <li><span class="tech-badge">RFID Pad</span><strong>Checkout:</strong> The student places a stack of books on the RFID scanning pad. Unlike barcodes, RFID does not require line-of-sight. The pad reads all book tags simultaneously in seconds.</li>
+                    <li><span class="tech-badge">Security</span><strong>Deactivation:</strong> The system updates the database to issue the books to the student and automatically rewrites the RFID tag's security bit, allowing the student to walk through the anti-theft RFID gates at the exit without triggering alarms.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- QUESTION 4 -->
+        <div class="section-container">
+            <h1>4. Computer Language Analysis</h1>
+            <p class="subtitle">Analyzing the Comparative Breakdown of Low-Level vs. High-Level Languages</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Comparison Criteria</th>
+                        <th>Low-Level Languages<br><span style="font-size: 0.8em; font-weight: normal;">(Machine & Assembly)</span></th>
+                        <th>High-Level Languages<br><span style="font-size: 0.8em; font-weight: normal;">(Python, Java, C++, etc.)</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="metric">Execution Speed</td>
+                        <td class="low-level"><strong>Extremely Fast:</strong> Machine code is executed directly by the CPU. Assembly language requires only simple, rapid translation, resulting in highly optimized execution times.</td>
+                        <td class="high-level"><strong>Relatively Slower:</strong> The code must be thoroughly analyzed and converted into machine code via compilers or interpreters before the CPU can execute it, adding processing overhead.</td>
+                    </tr>
+                    <tr>
+                        <td class="metric">Hardware Dependence</td>
+                        <td class="low-level"><strong>Highly Dependent:</strong> Code is tailored directly to a specific CPU architecture's instruction set. An assembly program written for an x86 processor will not run on an ARM processor.</td>
+                        <td class="high-level"><strong>Independent (Portable):</strong> Code is completely hardware-agnostic. The exact same program can run across different computer systems, architectures, and operating systems without modification.</td>
+                    </tr>
+                    <tr>
+                        <td class="metric">Translation Requirements</td>
+                        <td class="low-level"><strong>Minimal to None:</strong> Machine language requires no translation. Assembly language requires a specialized translator program called an <em>Assembler</em> to convert mnemonics into binary.</td>
+                        <td class="high-level"><strong>Extensive:</strong> Requires complex software tools—either a <em>Compiler</em> (translates the entire program at once) or an <em>Interpreter</em> (translates line-by-line) to generate executable machine code.</td>
+                    </tr>
+                    <tr>
+                        <td class="metric">Programming Complexity</td>
+                        <td class="low-level"><strong>High Complexity:</strong> Verbose, difficult to read, write, and debug. Programmers must have a deep understanding of memory management, CPU registers, and internal hardware architecture.</td>
+                        <td class="high-level"><strong>Low Complexity:</strong> Abstracted far away from the hardware. It uses a syntax that closely resembles human language (e.g., English keywords) and mathematical notation, making it much easier to learn and maintain.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- QUESTION 5 -->
+        <div class="section-container">
+            <h1>5. Input Precision & Operational Mechanisms</h1>
+            <p class="subtitle">An Analysis of Point-and-Draw Devices vs. Graphics Digitizers for CAD and Digital Art</p>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-title">Point-and-Draw Devices<br><span style="font-size: 0.8em; font-weight: normal; color: var(--secondary);">(Mouse & Trackball)</span></div>
+                    <p>Standard input devices relying on optical sensors or mechanical balls to track movement. Operated entirely by hand and finger gestures.</p>
+                </div>
+                <div class="card">
+                    <div class="card-title">Graphics Digitizers<br><span style="font-size: 0.8em; font-weight: normal; color: var(--secondary);">(Drawing Tablets)</span></div>
+                    <p>Professional input devices consisting of a flat active surface and a stylus (pen), designed to simulate the natural feel of drawing on paper.</p>
+                </div>
+            </div>
+            <h2>Coordinate Tracking Mechanisms</h2>
+            <table>
+                <tr>
+                    <th>Feature</th>
+                    <th>Mouse / Trackball</th>
+                    <th>Graphics Digitizers</th>
+                </tr>
+                <tr>
+                    <td><strong>Tracking Concept</strong></td>
+                    <td><span style="color: var(--accent-blue); font-weight: bold; display: block;">Relative Positioning</span> Movement maps to the cursor's current location. Lifting the mouse and placing it elsewhere does not snap the cursor to a new location.</td>
+                    <td><span style="color: var(--accent-blue); font-weight: bold; display: block;">Absolute Positioning</span> The tablet surface is a 1:1 map of the screen. Placing the stylus in the top-right corner of the tablet instantly snaps the cursor to the screen's top-right corner.</td>
+                </tr>
+            </table>
+            <h2>Pressure Sensitivity and Dynamics</h2>
+            <table>
+                <tr>
+                    <th>Feature</th>
+                    <th>Mouse / Trackball</th>
+                    <th>Graphics Digitizers</th>
+                </tr>
+                <tr>
+                    <td><strong>Pressure Sensitivity</strong></td>
+                    <td><span style="color: var(--accent-blue); font-weight: bold; display: block;">Binary Output</span> Buttons are simply clicked (1) or unclicked (0). A harder click does not change the resulting action on the screen.</td>
+                    <td><span style="color: var(--accent-blue); font-weight: bold; display: block;">Variable Output (Up to 8192 levels)</span> The active tip of the stylus measures exact physical force, dynamically translating it into line thickness, opacity, or brush size in real-time.</td>
+                </tr>
+            </table>
+            <h2>Application Suitability</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-title">Computer-Aided Design (CAD)</div>
+                    <p><strong>Mouse/Trackball:</strong> Often the preferred choice. The relative movement is ideal for endless panning in large 3D spaces, and multi-button CAD mice offer quick access to macros and orbit tools.</p>
+                </div>
+                <div class="card">
+                    <div class="card-title">Digital Art & Illustration</div>
+                    <p><strong>Digitizer:</strong> Absolutely essential. The absolute positioning provides crucial hand-eye coordination, while the pressure and tilt sensors allow artists to utilize the full spectrum of digital painting software features.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- QUESTION 6 -->
+        <div class="section-container">
+            <h1>6. Hardware Evaluation: Civil Engineering Blueprints</h1>
+            <p class="subtitle">Assessing Drum/Flatbed Plotters vs. UHD Monitor & Large-Format Printer Combinations</p>
+            <div class="intro-box">
+                <p><strong>The Objective:</strong> To evaluate and justify the superior hardware setup for modern civil engineering firms producing complex blueprints, analyzing the technical trade-offs between traditional vector-based pen plotters and modern raster-based large-format printers paired with ultra-high-definition (UHD) displays.</p>
+            </div>
+            <table>
+                <tr>
+                    <th>Evaluation Criteria</th>
+                    <th>Traditional Drum / Flatbed Plotters</th>
+                    <th>UHD Monitor + Large-Format Printer</th>
+                </tr>
+                <tr>
+                    <td><strong>Line Resolution & Precision</strong></td>
+                    <td><span style="font-weight: bold;">Continuous Vector Lines:</span> Plotters draw using physical pens, resulting in perfectly continuous lines. However, precision is physically limited by pen width.</td>
+                    <td><span style="font-weight: bold;">High-DPI Raster Lines:</span> Modern large-format printers operate at 1200+ DPI. The UHD monitor (4K/8K) allows engineers to verify line weight before printing.</td>
+                </tr>
+                <tr>
+                    <td><strong>Scalability & Speed</strong></td>
+                    <td><span style="font-weight: bold;">Low Scalability:</span> Plotters draw one line at a time. A complex blueprint can take hours to plot.</td>
+                    <td><span style="font-weight: bold;">High Scalability:</span> Raster-based large-format printers print an entire horizontal swath at once, allowing for rapid production of massive document sets.</td>
+                </tr>
+            </table>
+            <div class="verdict-box">
+                <div class="verdict-title">Final Verdict & Justification</div>
+                <p>The <strong>UHD Monitor and Large-Format Printer combination is undeniably superior</strong> for modern civil engineering blueprint production. Crucially, the modern setup wins on <strong>scalability and long-term costs</strong>. The speed of a large-format printer, combined with the digital proofing capabilities of a UHD monitor to eliminate misprints, provides a far more cost-effective and versatile solution.</p>
+            </div>
+        </div>
+
+        <!-- QUESTION 7 -->
+        <div class="section-container">
+            <h1>7. Critical Analysis: Biometric Input Devices</h1>
+            <p class="subtitle">Evaluating Operational Reliability & Security Vulnerabilities of Facial vs. Voice Recognition in Public Environments</p>
+            <h2>1. Operational Reliability (Adverse Conditions)</h2>
+            <div class="grid">
+                <div class="card" style="border-top-color: #8b5cf6;">
+                    <div class="card-title">👁️ Vision-Input (Facial Recognition)</div>
+                    <p><strong>Reliability in Public Exposures: Moderate to Low</strong></p>
+                    <ul>
+                        <li><strong>Variable Illumination:</strong> Harsh sunlight shadows or nighttime conditions require auxiliary IR lighting.</li>
+                        <li><strong>Environmental Obstructions:</strong> Rain, fog, snow, sunglasses, or hats reduce visible biometric data points.</li>
+                    </ul>
+                </div>
+                <div class="card" style="border-top-color: #f59e0b;">
+                    <div class="card-title">🎙️ Voice Recognition Devices</div>
+                    <p><strong>Reliability in High-Noise Environments: Critically Flawed</strong></p>
+                    <ul>
+                        <li><strong>SNR Collapse:</strong> In high-ambient-noise areas, background chatter causes high False Rejection Rates (FRR).</li>
+                        <li><strong>Acoustic Distortion:</strong> Wind noise and acoustic reverberation distort the frequency spectrum of the voice.</li>
+                    </ul>
+                </div>
+            </div>
+            <h2>2. Security Vulnerabilities</h2>
+            <div class="grid">
+                <div class="card" style="border-top-color: #8b5cf6;">
+                    <div class="card-title">👁️ Vision-Input Vulnerabilities</div>
+                    <ul>
+                        <li><span class="vuln-badge">Presentation Attacks</span> Use of high-resolution printed photos or 3D silicone masks.</li>
+                        <li><span class="vuln-badge">Adversarial Interference</span> IR-emitting glasses or adversarial makeup patterns can confuse neural networks.</li>
+                    </ul>
+                </div>
+                <div class="card" style="border-top-color: #f59e0b;">
+                    <div class="card-title">🎙️ Voice Input Vulnerabilities</div>
+                    <ul>
+                        <li><span class="vuln-badge">Replay Attacks</span> Recording a user's voice from a distance and playing it back.</li>
+                        <li><span class="vuln-badge">Deepfake Audio</span> Synthesizing the victim's voice to recite any dynamic prompt the system requests.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="conclusion">
+                <h3 style="margin-top: 0;">Final Verdict</h3>
+                <p>In high-ambient-noise, publicly exposed environments, <strong>neither system is sufficient as a standalone primary authentication tool.</strong> A multimodal fusion approach is mandatory.</p>
+            </div>
+        </div>
+
+        <!-- QUESTION 8 -->
+        <div class="section-container">
+            <h1>8. Accessible Workstation Synthesis</h1>
+            <p class="subtitle">System Design & Integration for a Non-Visual, Hands-Free Environment</p>
+            <div class="grid">
+                <div class="card" style="border-left: 5px solid var(--accent-purple);">
+                    <div class="card-title">🎙️ Non-Visual Input Subsystem</div>
+                    <ul>
+                        <li><strong>Voice Recognition Systems:</strong> Acts as the primary hands-free controller via NLP software to dictate text and execute commands.</li>
+                        <li><strong>Tactile & Braille Keyboards:</strong> Serves as the high-precision secondary input for rapid, error-free mechanical input.</li>
+                        <li><strong>Foot Pedals:</strong> Programmable foot switches as hands-free modifiers (e.g., mute).</li>
+                    </ul>
+                </div>
+                <div class="card" style="border-left: 5px solid var(--accent-green);">
+                    <div class="card-title">🔊 Specialized Output Subsystem</div>
+                    <ul>
+                        <li><strong>Screen Readers:</strong> The software bridge actively intercepting visual data and converting it into a structured text stream.</li>
+                        <li><strong>Voice Synthesizers (TTS):</strong> Uses neural Text-to-Speech engines to read the interface aloud at high speeds.</li>
+                        <li><strong>Refreshable Braille Displays:</strong> Translates the active line of text on the screen into readable physical Braille.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="highlight-box">
+                <div class="highlight-title">🔄 Coherent Integration: The Operational Loop</div>
+                <p>The components synthesize into a cohesive loop eliminating visual validation:</p>
+                <ol>
+                    <li><strong>Command Initiation:</strong> User issues a command via the <span class="tech-tag">Voice Recognition System</span>.</li>
+                    <li><strong>Data Translation:</strong> The <span class="tech-tag">Screen Reader</span> captures the text response.</li>
+                    <li><strong>Simultaneous Output:</strong> The <span class="tech-tag">Voice Synthesizer</span> reads the text aloud while the <span class="tech-tag">Refreshable Braille Display</span> renders it physically.</li>
+                    <li><strong>Feedback:</strong> User seamlessly transitions to the <span class="tech-tag">Tactile Keyboard</span> to make precise edits if needed.</li>
+                </ol>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
